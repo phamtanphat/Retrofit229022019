@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,8 +24,10 @@ public class MainActivity extends AppCompatActivity {
 //        https://pheptinhonline.herokuapp.com/chia/4/0
 
         // 1 : Cau hinh moi truong retrofit
+        Gson gson = new GsonBuilder().create();
 
         Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .baseUrl("https://pheptinhonline.herokuapp.com/")
                 .build();
 
