@@ -28,18 +28,18 @@ public class MainActivity extends AppCompatActivity {
         //3 : Khoi tao interface request
         RequestApi requestApi = retrofit.create(RequestApi.class);
         //4 : Gui request api muon thuc thi
-        Call<String> callbackApiCong = requestApi.apiCong();
+        Call<Cong> callbackApiCong = requestApi.apiCong();
         // 5 : Goi enqueue cho viec lay thong tin request
-        callbackApiCong.enqueue(new Callback<String>() {
+        callbackApiCong.enqueue(new Callback<Cong>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                String chuoi = response.body();
-                Log.d("BBB",chuoi);
+            public void onResponse(Call<Cong> call, Response<Cong> response) {
+                Cong value = response.body();
+                Log.d("BBB",value.getMessage().toString());
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable throwable) {
-                Log.d("BBB",throwable.getMessage());
+            public void onFailure(Call<Cong> call, Throwable throwable) {
+
             }
         });
     }
