@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 //        https://pheptinhonline.herokuapp.com/chia/4/0
 
         // 1 : Cau hinh moi truong retrofit
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://pheptinhonline.herokuapp.com/")
                 .build();
